@@ -4,7 +4,9 @@ Based on the API design and implement a process/processes to fetch data from the
 * trending tags in last 30 days.
 * top 10 all-time popular tags and their top 10 questions in last 30 days.
 * top 10 questions unanswered.
-
+# Architecture
+![dag1](./simple_arch.PNG)
+A simple pipeline to collect data from stackoverflow and load into AWS redshift.
 # Snapshots of DAG run and Tables populated in redshift
 ![dag1](./dag1.png)
 ![dag2](./dag2.png)
