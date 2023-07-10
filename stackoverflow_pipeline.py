@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, date
 import json
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from airflow.operators.postgres_operator import PostgresOperator
+# from airflow.operators.postgres_operator import PostgresOperator
 import requests
 import psycopg2
 from trending_tags import fetch_trending_tags
@@ -138,7 +138,7 @@ for i, tag in enumerate(top_10_all_time_popular_tags):
     fetch_top_questions_task = PythonOperator(
         task_id=f"fetch_top_questions_{i}",
         python_callable=fetch_top_questions,
-        op_args=[tag],
+        op_args=[tag["name"]],
         dag=dag,
     )
     
